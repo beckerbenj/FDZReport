@@ -13,4 +13,5 @@ Imports:
     ggplot2,
     tidyr,
     readxl,
-    eatTools
+    eatTools,
+    checkmate
