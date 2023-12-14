@@ -1,5 +1,5 @@
 Package: FDZReport
-Title: Create reports for FDZ data requests and data sets provided.
+Title: Create reports for FDZ data requests and data sets provided
 Version: 0.0.0.9000
 Authors@R: 
     person("First", "Last", , "first.last@example.com", role = c("aut", "cre"),
@@ -14,4 +14,5 @@ Imports:
     tidyr,
     readxl,
     eatTools,
-    checkmate
+    checkmate,
+    rlang

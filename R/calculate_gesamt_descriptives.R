@@ -23,7 +23,7 @@ calculate_gesamt_descriptives <- function(input_list, by_var) {
   }))
 
   dscr_dat$kumulativ <- cumsum(dscr_dat[[new_var_name]])
-  dscr_dat2 <- tidyr::pivot_longer(dscr_dat, cols = !any_of(by_var), names_to = "Statistik")
+  dscr_dat2 <- tidyr::pivot_longer(dscr_dat, cols = !tidyr::any_of(by_var), names_to = "Statistik")
   dscr_dat2[[by_var]] <- ordered(dscr_dat2[[by_var]])
   dscr_dat2
 }

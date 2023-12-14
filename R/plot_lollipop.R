@@ -15,10 +15,10 @@
 #'
 #'@export
 plot_lollipop <- function(dat, x, y = "Prozent", label = "label", x_axis_label) {
-  ggplot2::ggplot(data = dat, mapping = aes(x = .data[[x]], y = .data[[y]])) +
+  ggplot2::ggplot(data = dat, mapping = ggplot2::aes(x = .data[[x]], y = .data[[y]])) +
     ggplot2::geom_point() +
-    ggplot2::geom_segment(aes(x = .data[[x]], xend = .data[[x]], y = 0, yend = .data[[y]])) +
-    ggplot2::geom_text(aes(label = .data[[label]]), vjust=0, hjust = -0.5) +
+    ggplot2::geom_segment(ggplot2::aes(x = .data[[x]], xend = .data[[x]], y = 0, yend = .data[[y]])) +
+    ggplot2::geom_text(ggplot2::aes(label = .data[[label]]), vjust=0, hjust = -0.5) +
     ggplot2::ylim(c(0, max(dat[[y]] + 5))) +
     ggplot2::theme_bw() +
     ggplot2::coord_flip() +
