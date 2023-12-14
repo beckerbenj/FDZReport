@@ -30,12 +30,10 @@ calculate_studien_descriptives <- function(input_list, wellen_separat = FALSE,
   for(stud_snip in studien_regex) {
     stud_antr <- antr[grepl(stud_snip, antr$Studien), ]
 
-    dscr_dat_list[[stud_snip]] <- do.call(rbind, by(stud_antr, stud_antr$Jahr, function(subdat) {
-      data.frame(Jahr = subdat[1, "Jahr"], Freq = nrow(subdat))
-    }))
-    dscr_dat_list[[stud_snip]]$cumFreq <- cumsum(dscr_dat_list[[stud_snip]]$Freq)
+    dscr_dat_list[[stud_snip]] <- calculate_frequencies(stud_antr, by_var = "Jahr", new_var_name = "pro Jahr")
+    # renaming for compatability reasons
+    names(dscr_dat_list[[stud_snip]])[2:3] <- c("Freq", "cumFreq")
   }
 
-  dscr_dat_stud <- eatTools::do_call_rbind_withName(dscr_dat_list, col = "Studie")
-  dscr_dat_stud
+  eatTools::do_call_rbind_withName(dscr_dat_list, col = "Studie")
 }
