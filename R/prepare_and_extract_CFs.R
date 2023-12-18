@@ -11,9 +11,9 @@
 #'
 #'@export
 prepare_and_extract_cfs <- function(cfs_uebersicht) {
-  cfs_ori <- readxl::read_xlsx(cfs_uebersicht, sheet = "CF-applications",
+  suppressWarnings(cfs_ori <- readxl::read_xlsx(cfs_uebersicht, sheet = "CF-applications",
                               col_types = c("text", "text", "date", "date", "date", "text", "date", "text", "date",
-                                            "text", "date", "date", "numeric", "text"))
+                                            "text", "date", "date", "numeric", "text")))
   cfs <- cfs_ori[is.na(cfs_ori$`abgelehnt am`), c("Antragsdatum", "Studien")]
 
   #table(studien_ori$Status)

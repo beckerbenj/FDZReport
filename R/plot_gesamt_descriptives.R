@@ -10,12 +10,12 @@
 #' # tbd
 #'
 #'@export
-plot_gesamt_descriptives <- function(gesamt_descriptives) {
+plot_gesamt_descriptives <- function(gesamt_descriptives, ylab) {
   by_var <- names(gesamt_descriptives)[1]
   ggplot2::ggplot(data = gesamt_descriptives, mapping = ggplot2::aes(x = .data[[by_var]],
                                                    y = .data$value, color = .data$Statistik, group = .data$Statistik)) +
     ggplot2::geom_line(linewidth = 1)  +
-    ggplot2::ylab("Anzahl der Anträge") +
+    ggplot2::ylab(ylab) +
     ggplot2::geom_text(mapping = ggplot2::aes(label = .data$value), hjust= 0.5, vjust = 2, size= 3.0, color= "black") +
     #geom_text(mapping = aes(y = cumFreq, label = cumFreq), hjust= 0.5, vjust = -2, size= 3.0, color= "black") +
     ggplot2::theme_bw() +
