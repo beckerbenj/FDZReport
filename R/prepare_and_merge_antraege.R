@@ -15,6 +15,12 @@ prepare_and_merge_antraege <- function(antraege_aktiv, antraege_archiv) {
   antr <- readxl::read_xlsx(antraege_aktiv, sheet = "Anträge")
   antr_arch <- readxl::read_xlsx(antraege_archiv, sheet = "Anträge")
 
+  ctime_aktiv <- file.info(antraege_aktiv)$ctime
+  ctime_archiv <- file.info(antraege_archiv)$ctime
+  creation_diff <- difftime(ctime_aktiv, ctime_archiv, units = "days")
+  if(abs(creation_diff) > 1) stop("'antraege_aktiv' and 'antraege_archiv' have been created on different days. Both data base outputs should be created at the exact same time.")
+
+
   checkmate::assert_names(names(antr), must.include = c("Kurzname", "Status", "Studien", "Qualifikation"))
   checkmate::assert_names(names(antr_arch), must.include = c("Kurzname", "Status", "Studien", "Qualifikation"))
 
