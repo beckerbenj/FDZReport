@@ -4,7 +4,11 @@
 \alias{plot_gesamt_descriptives}
 \title{Create a line plot for absolute and cumulative frequencies.}
 \usage{
-plot_gesamt_descriptives(gesamt_descriptives)
+plot_gesamt_descriptives(
+  gesamt_descriptives,
+  ylab,
+  ylim = c(NA_integer_, NA_integer_)
+)
 }
 \arguments{
 \item{gesamt_descriptives}{An object as produced by \code{\link{calculate_gesamt_descriptives}}.}

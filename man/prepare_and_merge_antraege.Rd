@@ -16,6 +16,8 @@ A plot.
 }
 \description{
 Load, prepare and merge data of data requests.
+Creation date of \code{antraege_aktiv} und \code{antraege_archiv} is compared and if \code{difftime}
+is larger than 1 day, an error is issued.
 }
 \examples{
 # tbd

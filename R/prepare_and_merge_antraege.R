@@ -1,6 +1,8 @@
 #' Prepare and merge data of data requests.
 #'
 #' Load, prepare and merge data of data requests.
+#' Creation date of \code{antraege_aktiv} und \code{antraege_archiv} is compared and if \code{difftime}
+#' is larger than 1 day, an error is issued.
 #'
 #'@param antraege_aktiv A \code{.xlsm} file including all active data requests, as produced by \code{FAMe}.
 #'@param antraege_archiv A \code{.xlsm} file including all archived data requests, as produced by \code{FAMe}.
