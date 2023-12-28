@@ -3,6 +3,8 @@
 #' Create a line plot for absolute and cumulative frequencies.
 #'
 #'@param gesamt_descriptives An object as produced by \code{\link{calculate_gesamt_descriptives}}.
+#'@param ylab The title of the y axis.
+#'@param ylim The limits of the y axis (pre default calculated based on the variable range).
 #'
 #'@return A plot.
 #'

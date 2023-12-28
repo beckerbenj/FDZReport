@@ -12,6 +12,10 @@ plot_gesamt_descriptives(
 }
 \arguments{
 \item{gesamt_descriptives}{An object as produced by \code{\link{calculate_gesamt_descriptives}}.}
+
+\item{ylab}{The title of the y axis.}
+
+\item{ylim}{The limits of the y axis (pre default calculated based on the variable range).}
 }
 \value{
 A plot.
